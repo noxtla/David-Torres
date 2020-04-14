@@ -1,0 +1,63 @@
+package palindromo;
+
+public class Palindromo {
+
+    public static void main(String[] args) {
+
+        ///Declaras la palabra
+        String palabra = "yuy"; 
+        
+        ///Inicializas las variables para que una este al inicio y otra al final
+        ///El inicio es 0 el final es lenght()-1
+        ///La funcion lenght devuelve el tamaño de la cadena
+        ///Si mandams todo el tamaño se queda fuera de rango
+        ///por eso le restamos uno
+ 
+        int cadenaInicio = 0, cadenaFinal = palabra.length()/*-1*/;
+        
+        ///Es falso hasta que demuetres lo contrario
+        boolean fail = false;
+
+        ///Solo recorremos la mitad de la cadena
+        ///Porque estamos haciendo el recorrido sincrono de inicio a fin
+        for  (cadenaInicio=0; cadenaInicio<cadenaFinal; cadenaInicio++){
+            
+            ///Comparamos las posiciones la primera [0] y la ultoma [len-1] 
+            if (palabra.charAt(cadenaInicio) == palabra.charAt(cadenaFinal-1)){
+                ///Restamos a cadena final para que sincronize con cadenaInicial
+                cadenaFinal--;
+            }
+            else
+            {
+                ///Si no se cumple la condicion fail es true y salimos 
+                fail = true;
+                break;
+            }
+
+        }
+        
+                
+          ///Aqui esta otro metodo
+            /// con while
+        /*while ((cadenaInicio < cadenaInicio) && (!fail)) {
+
+            if (palabra.charAt(cadenaInicio) == palabra.charAt(cadenaFinal)) {
+                cadenaInicio++;
+                cadenaFinal--;
+            } else {
+                fail = true;
+            }
+        }*/
+        
+        ///
+        
+        System.out.println(fail);
+       
+       ///Si fail lo mantemos en falso es un palindromo  
+        if (fail != true) {
+            System.out.println(palabra + " es un PALINDROMO");
+        } else {
+            System.out.println(palabra + " NO es un palindromo");
+        }
+    }
+}
